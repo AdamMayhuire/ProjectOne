@@ -1,0 +1,10 @@
+services:
+  jupyter-white-clone:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: jupyter-white-clone:latest
+    container_name: jupyter-white-clone
+    ports:
+      - "8080:80"
+    restart: unless-stopped

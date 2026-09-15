@@ -1,0 +1,203 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Notebook White Clone</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="app-shell">
+      <header class="topbar">
+        <div class="brand">
+          <span class="brand-mark"></span>
+          <strong>JupyterLab White</strong>
+        </div>
+        <nav class="menu" aria-label="Menu principal">
+          <button>File</button>
+          <button>Edit</button>
+          <button>View</button>
+          <button>Run</button>
+          <button>Kernel</button>
+          <button>Tabs</button>
+          <button>Settings</button>
+          <button>Help</button>
+        </nav>
+      </header>
+
+      <main class="workspace">
+        <aside class="sidebar">
+          <div class="side-icons" aria-label="Herramientas laterales">
+            <button title="Archivos">F</button>
+            <button title="Ejecuciones">R</button>
+            <button title="Extensiones">E</button>
+          </div>
+
+          <section class="file-panel">
+            <div class="file-actions">
+              <label class="primary-upload">
+                <input id="fileInput" type="file" multiple />
+                <span>+</span>
+                Upload
+              </label>
+              <button id="newNotebook" title="Nuevo notebook">New</button>
+              <button id="refreshFiles" title="Actualizar lista">Refresh</button>
+            </div>
+
+            <div class="path-row">
+              <span class="folder-icon"></span>
+              <strong>/ AI-COURSE /</strong>
+            </div>
+
+            <div class="file-table" role="table" aria-label="Archivos">
+              <div class="file-head" role="row">
+                <span>Name</span>
+                <span>Last Modified</span>
+              </div>
+              <div id="fileList" class="file-list"></div>
+            </div>
+          </section>
+        </aside>
+
+        <section class="main-area">
+          <div class="tabs">
+            <button class="tab">analisis_cars_sesiones.ipynb</button>
+            <button class="tab">analisis_cars_completo.ipynb</button>
+            <button class="tab active">PinguinoData.ipynb</button>
+            <button id="addTab" class="tab add-tab" title="Nueva pestaña">+</button>
+          </div>
+
+          <div class="notebook-toolbar">
+            <button id="saveNotebook" title="Guardar">Save</button>
+            <button id="addCell" title="Agregar celda">+</button>
+            <button id="cutCell" title="Cortar celda">Cut</button>
+            <button id="copyCell" title="Copiar celda">Copy</button>
+            <button id="pasteCell" title="Pegar celda">Paste</button>
+            <button id="runCell" class="run-button" title="Ejecutar celda">Run</button>
+            <select id="cellType" aria-label="Tipo de celda">
+              <option>Code</option>
+              <option>Markdown</option>
+              <option>Raw</option>
+            </select>
+            <span class="kernel">Python 3 (ipykernel)</span>
+          </div>
+
+          <div id="notice" class="notice" hidden></div>
+
+          <article id="notebook" class="notebook" aria-label="Notebook editable">
+            <section class="cell selected" data-cell="120">
+              <div class="prompt">[120]:</div>
+              <textarea spellcheck="false">import empiricaldist
+import janitor
+import matplotlib.pyplot as plt
+import numpy as np
+import pandas as pd
+import scipy.stats
+import seaborn as sns
+import sklearn.metrics
+import statsmodels.api as sm
+import statsmodels.formula.api as smf
+import statsmodels.stats as ss
+import session_info</textarea>
+              <div class="cell-tools">
+                <button title="Subir archivo a esta celda">Upload</button>
+                <button title="Ejecutar">Run</button>
+                <button title="Eliminar">Delete</button>
+              </div>
+            </section>
+
+            <section class="cell" data-cell="149">
+              <div class="prompt">[149]:</div>
+              <textarea spellcheck="false">#Establecer apariencia general de los graficos
+%matplotlib inline
+sns.set_style(style='whitegrid')
+sns.set_context(context='notebook')
+plt.rcParams['figure.figsize'] = (11, 9.4)
+penguin_color = {
+  'Adelie': '#ff6602ff',
+  'Gentoo': '#0f7175ff',
+  'Chinstrap': '#c65dc9ff'
+}</textarea>
+              <div class="cell-tools">
+                <button title="Subir archivo a esta celda">Upload</button>
+                <button title="Ejecutar">Run</button>
+                <button title="Eliminar">Delete</button>
+              </div>
+            </section>
+
+            <section class="cell compact" data-cell="150">
+              <div class="prompt">[150]:</div>
+              <textarea spellcheck="false">data=pd.read_csv("penguins.csv")</textarea>
+              <div class="cell-tools">
+                <button title="Subir archivo a esta celda">Upload</button>
+                <button title="Ejecutar">Run</button>
+                <button title="Eliminar">Delete</button>
+              </div>
+            </section>
+
+            <section class="cell compact" data-cell="151">
+              <div class="prompt">[151]:</div>
+              <textarea spellcheck="false">data.sample(10)</textarea>
+              <div class="cell-tools">
+                <button title="Subir archivo a esta celda">Upload</button>
+                <button title="Ejecutar">Run</button>
+                <button title="Eliminar">Delete</button>
+              </div>
+              <div class="output">
+                <table>
+                  <thead>
+                    <tr>
+                      <th></th>
+                      <th>species</th>
+                      <th>island</th>
+                      <th>bill_length_mm</th>
+                      <th>bill_depth_mm</th>
+                      <th>flipper_length_mm</th>
+                      <th>body_mass_g</th>
+                      <th>sex</th>
+                      <th>year</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr><th>197</th><td>Gentoo</td><td>Biscoe</td><td>43.6</td><td>13.9</td><td>217.0</td><td>4900.0</td><td>female</td><td>2008</td></tr>
+                    <tr><th>129</th><td>Adelie</td><td>Torgersen</td><td>44.1</td><td>18.0</td><td>210.0</td><td>4000.0</td><td>male</td><td>2009</td></tr>
+                    <tr><th>289</th><td>Chinstrap</td><td>Dream</td><td>52.0</td><td>18.1</td><td>201.0</td><td>4050.0</td><td>male</td><td>2007</td></tr>
+                    <tr><th>44</th><td>Adelie</td><td>Dream</td><td>37.0</td><td>16.9</td><td>185.0</td><td>3000.0</td><td>female</td><td>2007</td></tr>
+                    <tr><th>274</th><td>Gentoo</td><td>Biscoe</td><td>45.2</td><td>14.8</td><td>212.0</td><td>5200.0</td><td>female</td><td>2009</td></tr>
+                  </tbody>
+                </table>
+              </div>
+            </section>
+
+            <section class="markdown-cell">
+              <h2>Que tipo de dato son las variables del conjunto de datos?</h2>
+            </section>
+
+            <section class="cell compact" data-cell="152">
+              <div class="prompt">[152]:</div>
+              <textarea spellcheck="false">data.dtypes</textarea>
+              <div class="cell-tools">
+                <button title="Subir archivo a esta celda">Upload</button>
+                <button title="Ejecutar">Run</button>
+                <button title="Eliminar">Delete</button>
+              </div>
+              <pre class="text-output">species               str
+island                str
+bill_length_mm    float64
+bill_depth_mm     float64
+flipper_length_mm float64</pre>
+            </section>
+          </article>
+
+          <footer class="statusbar">
+            <span>Python 3 (ipykernel) | Idle</span>
+            <span>Mode: Command</span>
+            <span id="cellCount">Cell 1/6</span>
+          </footer>
+        </section>
+      </main>
+    </div>
+
+    <script src="app.js"></script>
+  </body>
+</html>
